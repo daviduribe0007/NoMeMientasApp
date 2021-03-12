@@ -1,9 +1,9 @@
-package co.com.softka.softkau.Nomemientasapp.domain.juego;
+package co.com.softka.softkau.Nomemientasapp.domain.game.entities;
 
 import co.com.sofka.domain.generic.Entity;
-import co.com.softka.softkau.Nomemientasapp.domain.juego.values.valuesObjects.Capital;
-import co.com.softka.softkau.Nomemientasapp.domain.juego.values.PlayerId;
-import co.com.softka.softkau.Nomemientasapp.domain.juego.values.valuesObjects.Name;
+import co.com.softka.softkau.Nomemientasapp.domain.game.values.valuesObjects.Capital;
+import co.com.softka.softkau.Nomemientasapp.domain.game.values.identities.PlayerId;
+import co.com.softka.softkau.Nomemientasapp.domain.game.values.valuesObjects.Name;
 
 public class Player extends Entity<PlayerId> {
 
