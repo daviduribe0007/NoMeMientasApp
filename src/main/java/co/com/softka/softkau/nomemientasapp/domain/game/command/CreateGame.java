@@ -1,7 +1,7 @@
-package co.com.softka.softkau.Nomemientasapp.domain.game.command;
+package co.com.softka.softkau.nomemientasapp.domain.game.command;
 
 import co.com.sofka.domain.generic.Command;
-import co.com.softka.softkau.Nomemientasapp.domain.game.entities.Player;
+import co.com.softka.softkau.nomemientasapp.domain.game.Player;
 
 import java.util.Set;
 

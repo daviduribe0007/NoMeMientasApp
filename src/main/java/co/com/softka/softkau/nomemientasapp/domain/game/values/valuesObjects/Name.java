@@ -1,4 +1,4 @@
-package co.com.softka.softkau.Nomemientasapp.domain.game.values.valuesObjects;
+package co.com.softka.softkau.nomemientasapp.domain.game.values.valuesObjects;
 
 import co.com.sofka.domain.generic.ValueObject;
 

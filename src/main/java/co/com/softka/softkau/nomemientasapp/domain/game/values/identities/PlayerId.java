@@ -1,4 +1,4 @@
-package co.com.softka.softkau.Nomemientasapp.domain.game.values.identities;
+package co.com.softka.softkau.nomemientasapp.domain.game.values.identities;
 
 import co.com.sofka.domain.generic.Identity;
 

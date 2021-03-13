@@ -1,4 +1,4 @@
-package co.com.softka.softkau.Nomemientasapp.domain.game.values.valuesObjects;
+package co.com.softka.softkau.nomemientasapp.domain.game.values.valuesObjects;
 
 import co.com.sofka.domain.generic.ValueObject;
 
@@ -22,9 +22,9 @@ public class Capital implements ValueObject<Double> {
     public Capital subtractCapital(Double value) {
         if (value > this.value) {
             throw new IllegalArgumentException("The subtrac capital can´t excend your current capital ");
-        } else {
-            return new Capital(this.value - value);
         }
+        return new Capital(this.value - value);
+
     }
 
     @Override

@@ -1,18 +1,19 @@
-package co.com.softka.softkau.Nomemientasapp.usecase;
+package co.com.softka.softkau.nomemientasapp.usecase;
 
+import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
-import co.com.softka.softkau.Nomemientasapp.domain.game.command.CreateGame;
-import co.com.softka.softkau.Nomemientasapp.domain.game.entities.Player;
-import co.com.softka.softkau.Nomemientasapp.domain.game.events.GameCreated;
-import co.com.softka.softkau.Nomemientasapp.domain.game.values.identities.PlayerId;
-import co.com.softka.softkau.Nomemientasapp.domain.game.values.valuesObjects.Name;
+import co.com.softka.softkau.nomemientasapp.domain.game.command.CreateGame;
+import co.com.softka.softkau.nomemientasapp.domain.game.Player;
+import co.com.softka.softkau.nomemientasapp.domain.game.events.GameCreated;
+import co.com.softka.softkau.nomemientasapp.domain.game.values.identities.PlayerId;
+import co.com.softka.softkau.nomemientasapp.domain.game.values.valuesObjects.Name;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class CreateGameUseCaseTest {
 
@@ -40,6 +41,21 @@ class CreateGameUseCaseTest {
         Assertions.assertEquals("juan", juegoCreado.getPlayers().get(PlayerId.of("777")).name().value());
         Assertions.assertEquals("camilo", juegoCreado.getPlayers().get(PlayerId.of("888")).name().value());
         Assertions.assertEquals("pipe", juegoCreado.getPlayers().get(PlayerId.of("999")).name().value());
+    }
+
+
+    @Test
+    void errorCreateGame(){
+        var command = new CreateGame(Set.of(
+                new Player(PlayerId.of("1234"), new Name("camila"))
+        ));
+        var createGameUseCase = new CreateGameUseCase();
+
+        Assertions.assertThrows(BusinessException.class, () -> {
+            UseCaseHandler.getInstance()
+                    .syncExecutor(createGameUseCase, new RequestCommand<>(command))
+                    .orElseThrow();
+        },"The minimun number of players to start is two players and the maximum 24");
     }
 
 }

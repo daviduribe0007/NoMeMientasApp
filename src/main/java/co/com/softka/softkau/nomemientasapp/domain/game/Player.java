@@ -1,15 +1,14 @@
-package co.com.softka.softkau.Nomemientasapp.domain.game.entities;
+package co.com.softka.softkau.nomemientasapp.domain.game;
 
 import co.com.sofka.domain.generic.Entity;
-import co.com.softka.softkau.Nomemientasapp.domain.game.values.valuesObjects.Capital;
-import co.com.softka.softkau.Nomemientasapp.domain.game.values.identities.PlayerId;
-import co.com.softka.softkau.Nomemientasapp.domain.game.values.valuesObjects.Name;
+import co.com.softka.softkau.nomemientasapp.domain.game.values.valuesObjects.Capital;
+import co.com.softka.softkau.nomemientasapp.domain.game.values.identities.PlayerId;
+import co.com.softka.softkau.nomemientasapp.domain.game.values.valuesObjects.Name;
 
 public class Player extends Entity<PlayerId> {
 
     private final Name name;
     private Capital capital;
-
 
 
     public Player(PlayerId entityId, Name name, Capital capital) {
@@ -29,11 +28,7 @@ public class Player extends Entity<PlayerId> {
     }
 
     public void subtractCapital(Double valor) {
-        try {
-            this.capital = this.capital.subtractCapital(valor);
-        } catch (Exception e) {
-            throw new IllegalArgumentException(e + " --- Error on subtractCapital ---");
-        }
+        this.capital = this.capital.subtractCapital(valor);
     }
 
     public Capital capital() {
