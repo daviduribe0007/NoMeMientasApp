@@ -1,7 +1,6 @@
 package co.com.softka.softkau.nomemientasapp.domain.round;
 
 import co.com.sofka.domain.generic.Entity;
-import co.com.softka.softkau.nomemientasapp.domain.game.Player;
 import co.com.softka.softkau.nomemientasapp.domain.game.values.identities.PlayerId;
 import co.com.softka.softkau.nomemientasapp.domain.round.values.identities.StageId;
 import co.com.softka.softkau.nomemientasapp.domain.round.values.valuesobjects.DiceFace;

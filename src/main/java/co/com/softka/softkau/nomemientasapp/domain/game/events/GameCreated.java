@@ -1,20 +1,17 @@
 package co.com.softka.softkau.nomemientasapp.domain.game.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.softka.softkau.nomemientasapp.domain.game.Player;
-import co.com.softka.softkau.nomemientasapp.domain.game.values.identities.PlayerId;
+import co.com.softka.softkau.nomemientasapp.domain.game.values.identities.GameId;
 
-import java.util.Map;
 
 public class GameCreated extends DomainEvent {
-    private final Map<PlayerId, Player> players;
-
-    public GameCreated(Map<PlayerId, Player> players) {
+    private final GameId gameId;
+    public GameCreated(GameId gameId) {
         super("Nomemientasapp.game.created");
-        this.players = players;
+        this.gameId = gameId;
     }
 
-    public Map<PlayerId, Player> getPlayers() {
-        return players;
+    public GameId getGameId() {
+        return gameId;
     }
 }

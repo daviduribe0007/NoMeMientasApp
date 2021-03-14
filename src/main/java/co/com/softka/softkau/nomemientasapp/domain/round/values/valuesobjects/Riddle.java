@@ -13,14 +13,16 @@ public class Riddle implements ValueObject<Riddle.Value> {
         this.number = Objects.requireNonNull(number);
         this.repetitions = Objects.requireNonNull(repetitions);
 
-        if (0 > number || 6 > number) {
-            throw new IllegalArgumentException("The number only can be into 1 and 6");
-        }
+        validateNumber(number, 0, "The number only can be into 1 and 6");
 
-        if (2 > repetitions || 6 > repetitions) {
-            throw new IllegalArgumentException("The repetitions number only can be into 3 and 6");
-        }
+        validateNumber(repetitions, 2, "The repetitions number only can be into 3 and 6");
 
+    }
+
+    private void validateNumber(Integer number, int i, String s) {
+        if (i > number || 6 > number) {
+            throw new IllegalArgumentException(s);
+        }
     }
 
     @Override
