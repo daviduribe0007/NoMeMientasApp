@@ -18,4 +18,7 @@ public class Dice extends Entity<DiceId> {
         }
     }
 
+    public List<DiceFace> getDiceFaces() {
+        return diceFaces;
+    }
 }

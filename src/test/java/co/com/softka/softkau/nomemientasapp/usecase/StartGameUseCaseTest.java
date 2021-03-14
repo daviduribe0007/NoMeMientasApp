@@ -1,6 +1,5 @@
 package co.com.softka.softkau.nomemientasapp.usecase;
 
-import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
 import co.com.sofka.business.support.RequestCommand;
