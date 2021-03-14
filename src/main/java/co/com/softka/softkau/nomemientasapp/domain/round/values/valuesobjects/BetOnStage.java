@@ -1,9 +1,7 @@
-package co.com.softka.softkau.nomemientasapp.domain.round;
+package co.com.softka.softkau.nomemientasapp.domain.round.values.valuesobjects;
 
 
 import co.com.sofka.domain.generic.ValueObject;
-import co.com.softka.softkau.nomemientasapp.domain.round.values.valuesobjects.Riddle;
-import co.com.softka.softkau.nomemientasapp.domain.round.values.valuesobjects.ToBet;
 
 import java.util.Objects;
 
