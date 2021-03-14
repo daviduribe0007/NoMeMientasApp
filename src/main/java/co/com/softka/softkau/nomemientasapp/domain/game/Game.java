@@ -3,6 +3,7 @@ package co.com.softka.softkau.nomemientasapp.domain.game;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.softka.softkau.nomemientasapp.domain.game.events.GameCreated;
+import co.com.softka.softkau.nomemientasapp.domain.game.events.GameStarted;
 import co.com.softka.softkau.nomemientasapp.domain.game.events.PlayerAdded;
 import co.com.softka.softkau.nomemientasapp.domain.game.factory.PlayerFactory;
 import co.com.softka.softkau.nomemientasapp.domain.game.values.identities.GameId;
@@ -43,5 +44,24 @@ public Game(GameId entityId, PlayerFactory playerFactory) {
         subscribe(new GameChange(this));
     }
 
+    public void startGame(){
+    var playersIds = players.keySet();
+    appendChange(new GameStarted(playersIds)).apply();
+    }
 
+    public Boolean isStartedGame() {
+        return startedGame;
+    }
+
+    public Map<PlayerId, Player> players() {
+        return players;
+    }
+
+    public RoundId roundId() {
+        return roundId;
+    }
+
+    public Boolean endGame() {
+        return endGame;
+    }
 }
