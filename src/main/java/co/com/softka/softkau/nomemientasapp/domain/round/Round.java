@@ -3,6 +3,7 @@ package co.com.softka.softkau.nomemientasapp.domain.round;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.softka.softkau.nomemientasapp.domain.game.values.identities.PlayerId;
+import co.com.softka.softkau.nomemientasapp.domain.round.events.DicesThrowes;
 import co.com.softka.softkau.nomemientasapp.domain.round.events.RoundCreated;
 import co.com.softka.softkau.nomemientasapp.domain.round.events.RoundStart;
 import co.com.softka.softkau.nomemientasapp.domain.round.events.StageCreated;
@@ -17,6 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 
 public class Round extends AggregateEvent<RoundId> {
@@ -26,9 +28,6 @@ public class Round extends AggregateEvent<RoundId> {
     protected Map<StageId, Stage> stagues;
     protected Map<RoundId, PointRound> points;
     protected Set<PlayerId> playerIds;
-
-
-
 
     public Round(RoundId entityId) {
         super(entityId);
@@ -53,5 +52,14 @@ public class Round extends AggregateEvent<RoundId> {
     public void createFirstStage() {
         List<DiceFace> diceFaces = new ArrayList<>();
         appendChange(new StageCreated(gameId, StageId.of(1), diceFaces)).apply();
+    }
+
+    public void throwDice() {
+        var diceFaceList = this.dice
+                .values()
+                .stream()
+                .map(dice -> Map.of(dice.identity(), dice.getDiceFaces()))
+                .collect(Collectors.toList());
+        appendChange(new DicesThrowes(gameId, diceFaceList)).apply();
     }
 }
