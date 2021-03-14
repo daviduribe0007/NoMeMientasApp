@@ -7,7 +7,6 @@ public class StartGame implements Command {
 
     private final GameId gameId;
 
-
     public StartGame(GameId gameId) {
         this.gameId = gameId;
     }

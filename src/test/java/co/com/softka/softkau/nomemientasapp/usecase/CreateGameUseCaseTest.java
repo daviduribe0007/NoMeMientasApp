@@ -25,7 +25,7 @@ class CreateGameUseCaseTest {
     void crearUnJuego() {
         var names = Map.of(
                 PlayerId.of("111"), new Name("Raul Alzate"),
-                PlayerId.of("222"), new Name("Andres Alzate"),
+                PlayerId.of("222"), new Name("Andres"),
                 PlayerId.of("333"), new Name("camila"),
                 PlayerId.of("666"), new Name("oscar"),
                 PlayerId.of("777"), new Name("juan"),
@@ -64,7 +64,7 @@ class CreateGameUseCaseTest {
         Assertions.assertEquals(500, playerAddedToRaul.getCapital().value());
         Assertions.assertEquals("111", playerAddedToRaul.getPlayerId().value());
 
-        Assertions.assertEquals("Andres Alzate", playerAddedToAndres.getName().value());
+        Assertions.assertEquals("Andres", playerAddedToAndres.getName().value());
         Assertions.assertEquals(500, playerAddedToAndres.getCapital().value());
         Assertions.assertEquals("222", playerAddedToAndres.getPlayerId().value());
 

@@ -12,7 +12,6 @@ public class CreateGame implements Command {
     private final Map<PlayerId, Name> names;
 
     public CreateGame(Map<PlayerId, Capital> capitals, Map<PlayerId, Name> names) {
-
         this.capitals = capitals;
         this.names = names;
     }

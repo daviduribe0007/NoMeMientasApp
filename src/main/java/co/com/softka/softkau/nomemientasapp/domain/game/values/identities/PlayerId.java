@@ -4,7 +4,7 @@ import co.com.sofka.domain.generic.Identity;
 
 public class PlayerId extends Identity {
 
-    private PlayerId(String uid) {
+    public PlayerId(String uid) {
         super(uid);
     }
 

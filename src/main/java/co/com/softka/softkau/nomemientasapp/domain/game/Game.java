@@ -22,12 +22,12 @@ public class Game extends AggregateEvent<GameId> {
     protected Boolean startedGame;
     protected Boolean endGame;
 
-public Game(GameId entityId, PlayerFactory playerFactory) {
-    super(entityId);
-    appendChange(new GameCreated(entityId)).apply();
-    playerFactory.players()
-            .forEach(player ->addPlayer (player.identity(), player.name(), player.capital()));
-}
+    public Game(GameId entityId, PlayerFactory playerFactory) {
+        super(entityId);
+        appendChange(new GameCreated(entityId)).apply();
+        playerFactory.players()
+                .forEach(player -> addPlayer(player.identity(), player.name(), player.capital()));
+    }
 
     public static Game from(GameId entityId, List<DomainEvent> events) {
         var game = new Game(entityId);
@@ -44,9 +44,9 @@ public Game(GameId entityId, PlayerFactory playerFactory) {
         subscribe(new GameChange(this));
     }
 
-    public void startGame(){
-    var playersIds = players.keySet();
-    appendChange(new GameStarted(playersIds)).apply();
+    public void startGame() {
+        var playersIds = players.keySet();
+        appendChange(new GameStarted(playersIds)).apply();
     }
 
     public Boolean isStartedGame() {
