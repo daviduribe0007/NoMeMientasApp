@@ -1,7 +1,6 @@
 package co.com.softka.softkau.nomemientasapp.domain.game.events;
 
 import co.com.sofka.domain.generic.DomainEvent;
-import co.com.softka.softkau.nomemientasapp.domain.game.values.identities.GameId;
 import co.com.softka.softkau.nomemientasapp.domain.game.values.identities.PlayerId;
 
 import java.util.Set;

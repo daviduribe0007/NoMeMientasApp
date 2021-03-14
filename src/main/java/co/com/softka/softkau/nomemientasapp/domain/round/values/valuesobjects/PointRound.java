@@ -7,7 +7,7 @@ public class PointRound implements ValueObject<Integer> {
     private Integer value;
     private PlayerId playerId;
 
-    public PointRound(Integer value, PlayerId playerId) {
+    public PointRound( PlayerId playerId) {
         this.value = 0;
         this.playerId = playerId;
     }

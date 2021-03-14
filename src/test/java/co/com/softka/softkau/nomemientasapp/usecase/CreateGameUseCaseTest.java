@@ -4,7 +4,6 @@ import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.RequestCommand;
 import co.com.softka.softkau.nomemientasapp.domain.game.command.CreateGame;
-import co.com.softka.softkau.nomemientasapp.domain.game.Player;
 import co.com.softka.softkau.nomemientasapp.domain.game.events.GameCreated;
 import co.com.softka.softkau.nomemientasapp.domain.game.events.PlayerAdded;
 import co.com.softka.softkau.nomemientasapp.domain.game.values.identities.PlayerId;
