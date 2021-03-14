@@ -6,6 +6,7 @@ import co.com.softka.softkau.nomemientasapp.domain.round.values.identities.Round
 import co.com.softka.softkau.nomemientasapp.domain.round.values.identities.DiceId;
 import co.com.softka.softkau.nomemientasapp.domain.game.values.identities.GameId;
 import co.com.softka.softkau.nomemientasapp.domain.round.values.identities.StageId;
+import co.com.softka.softkau.nomemientasapp.domain.round.values.valuesobjects.PointRound;
 
 import java.util.List;
 import java.util.Map;

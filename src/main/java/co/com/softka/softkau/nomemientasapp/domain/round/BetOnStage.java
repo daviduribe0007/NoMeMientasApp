@@ -3,14 +3,15 @@ package co.com.softka.softkau.nomemientasapp.domain.round;
 
 import co.com.sofka.domain.generic.ValueObject;
 import co.com.softka.softkau.nomemientasapp.domain.round.values.valuesobjects.Riddle;
+import co.com.softka.softkau.nomemientasapp.domain.round.values.valuesobjects.ToBet;
 
 import java.util.Objects;
 
-public class Bet implements ValueObject<Bet.Values> {
+public class BetOnStage implements ValueObject<BetOnStage.Values> {
     private final Riddle riddle;
     private final ToBet toBet;
 
-    public Bet(Riddle riddle, ToBet toBet) {
+    public BetOnStage(Riddle riddle, ToBet toBet) {
         this.riddle = Objects.requireNonNull(riddle);
         this.toBet = Objects.requireNonNull(toBet);
     }

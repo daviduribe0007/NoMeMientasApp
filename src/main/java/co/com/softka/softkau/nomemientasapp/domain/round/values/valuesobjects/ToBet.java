@@ -1,4 +1,4 @@
-package co.com.softka.softkau.nomemientasapp.domain.round;
+package co.com.softka.softkau.nomemientasapp.domain.round.values.valuesobjects;
 
 import co.com.sofka.domain.generic.ValueObject;
 
