@@ -25,6 +25,6 @@ public class CreateGameUseCase extends UseCase<RequestCommand<CreateGame>, Respo
     }
 
     private boolean validateNumbersOfPlayers(CreateGame command) {
-        return command.getPlayers().size() < 3 || command.getPlayers().size() > 25;
+        return command.getPlayers().size() < 3 && 25 > command.getPlayers().size()  ;
     }
 }

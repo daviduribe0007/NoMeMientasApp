@@ -9,14 +9,18 @@ import co.com.softka.softkau.nomemientasapp.domain.round.values.identities.Stage
 import java.util.Map;
 
 
-public class Round<Stage> extends AggregateEvent<RoundId> {
+public class Round extends AggregateEvent<RoundId> {
 
     protected GameId gameId;
     protected Map<DiceId,Dice> dice;
     protected Map<StageId, Stage> stagues;
+    protected Map<RoundId, PointRound> points;
+
+
 
 
     public Round(RoundId entityId) {
         super(entityId);
+        subscribe(new RoundChange(this));
     }
 }
