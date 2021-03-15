@@ -7,7 +7,7 @@ public class PointRound implements ValueObject<Integer> {
     private Integer value;
     private PlayerId playerId;
 
-    public PointRound( PlayerId playerId) {
+    public PointRound(PlayerId playerId) {
         this.value = 0;
         this.playerId = playerId;
     }
@@ -19,7 +19,7 @@ public class PointRound implements ValueObject<Integer> {
     }
 
     private void validationValue(Integer value) {
-        if (value==null) {
+        if (value == null) {
             throw new IllegalArgumentException("You can´t add null values");
         }
         if (0 > value) {

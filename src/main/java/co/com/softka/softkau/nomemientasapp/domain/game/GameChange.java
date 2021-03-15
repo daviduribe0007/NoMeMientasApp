@@ -35,7 +35,5 @@ public class GameChange extends EventChange {
         });
 
 
-
-
     }
 }

@@ -19,7 +19,6 @@ public class DicesThrowes extends DomainEvent {
         this.dicesList = dicesList;
     }
 
-
     public List<Map<DiceId, List<DiceFace>>> diceFaceList() {
         return dicesList;
     }

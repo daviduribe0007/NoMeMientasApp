@@ -1,4 +1,4 @@
-package co.com.softka.softkau.nomemientasapp.usecase;
+package co.com.softka.softkau.nomemientasapp.usecase.round;
 
 import co.com.sofka.business.generic.UseCase;
 import co.com.sofka.business.support.ResponseEvents;
@@ -7,7 +7,7 @@ import co.com.softka.softkau.nomemientasapp.domain.round.Round;
 import co.com.softka.softkau.nomemientasapp.domain.round.events.DicesThrowes;
 import co.com.softka.softkau.nomemientasapp.domain.round.values.identities.RoundId;
 
-public class CreateFirstStage extends UseCase<TriggeredEvent<DicesThrowes>, ResponseEvents> {
+public class CreateFirstStageUseCase extends UseCase<TriggeredEvent<DicesThrowes>, ResponseEvents> {
     @Override
     public void executeUseCase(TriggeredEvent<DicesThrowes> input) {
         var event = input.getDomainEvent();

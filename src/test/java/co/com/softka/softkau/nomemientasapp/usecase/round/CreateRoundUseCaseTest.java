@@ -1,4 +1,4 @@
-package co.com.softka.softkau.nomemientasapp.usecase;
+package co.com.softka.softkau.nomemientasapp.usecase.round;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.support.TriggeredEvent;
@@ -10,15 +10,12 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class CreateRoundUseCaseTest {
     @Test
     void crearRonda() {
         var event = new GameStarted(Set.of(PlayerId.of("xxx"), PlayerId.of("fff")));
         event.setAggregateRootId("222");
         var useCase = new CreateRoundUseCase();
-
         var events = UseCaseHandler
                 .getInstance()
                 .syncExecutor(useCase, new TriggeredEvent<>(event))

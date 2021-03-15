@@ -1,4 +1,4 @@
-package co.com.softka.softkau.nomemientasapp.usecase;
+package co.com.softka.softkau.nomemientasapp.usecase.round;
 
 import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCase;
@@ -21,8 +21,6 @@ public class CreateRoundUseCase extends UseCase<TriggeredEvent<GameStarted>, Res
         var gameId = GameId.of(event.aggregateRootId());
         var round = new Round(roundId, gameId, event.getPlayersIds());
         round.startRound();
-
         emit().onResponse(new ResponseEvents(round.getUncommittedChanges()));
-
     }
 }

@@ -1,4 +1,4 @@
-package co.com.softka.softkau.nomemientasapp.usecase;
+package co.com.softka.softkau.nomemientasapp.usecase.game;
 
 import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCaseHandler;
@@ -90,7 +90,7 @@ class CreateGameUseCaseTest {
 
 
     @Test
-    void errorAlCrearJuego(){
+    void errorAlCrearJuego() {
         var name = Map.of(
                 PlayerId.of("111"), new Name("Raul Alzate")
         );

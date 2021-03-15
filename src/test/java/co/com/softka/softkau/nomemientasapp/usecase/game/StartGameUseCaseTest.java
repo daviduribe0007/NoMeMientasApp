@@ -1,4 +1,4 @@
-package co.com.softka.softkau.nomemientasapp.usecase;
+package co.com.softka.softkau.nomemientasapp.usecase.game;
 
 import co.com.sofka.business.generic.UseCaseHandler;
 import co.com.sofka.business.repository.DomainEventRepository;
@@ -30,7 +30,7 @@ class StartGameUseCaseTest {
     private DomainEventRepository repository;
 
     @Test
-    void startGame(){
+    void startGame() {
         var id = GameId.of("21");
         var command = new StartGame(id);
         var useCase = new StartGameUseCase();
@@ -44,8 +44,8 @@ class StartGameUseCaseTest {
                 .orElseThrow()
                 .getDomainEvents();
 
-        var gameStarted = (GameStarted)events.get(0);
-       Assertions.assertEquals(2, gameStarted.getPlayersIds().size());
+        var gameStarted = (GameStarted) events.get(0);
+        Assertions.assertEquals(2, gameStarted.getPlayersIds().size());
 
     }
 
@@ -56,7 +56,6 @@ class StartGameUseCaseTest {
                 new PlayerAdded(PlayerId.of("222"), new Name("Andres"), new Capital(500.0))
         );
     }
-
 
 
 }

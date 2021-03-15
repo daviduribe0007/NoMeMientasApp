@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 public class Round extends AggregateEvent<RoundId> {
 
     protected GameId gameId;
-    protected Map<DiceId,Dice> dice;
+    protected Map<DiceId, Dice> dice;
     protected Map<StageId, Stage> stagues;
     protected Map<RoundId, PointRound> points;
     protected Set<PlayerId> playerIds;

@@ -5,7 +5,6 @@ import co.com.sofka.domain.generic.ValueObject;
 import java.util.Objects;
 
 public class Capital implements ValueObject<Double> {
-
     private final Double value;
 
     public Capital(Double capital) {

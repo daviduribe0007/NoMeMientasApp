@@ -20,7 +20,6 @@ public class Stage extends Entity<StageId> {
         super(entityId);
         this.diceFacesVible = new ArrayList<>();
         this.betsOnStage = new HashMap<>();
-
     }
 
     public void addDiceFaceVisible(DiceFace diceFace) {

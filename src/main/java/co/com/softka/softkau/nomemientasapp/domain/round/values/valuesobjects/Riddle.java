@@ -9,14 +9,10 @@ public class Riddle implements ValueObject<Riddle.Value> {
     private final Integer repetitions;
 
     public Riddle(Integer number, Integer repetitions) {
-
         this.number = Objects.requireNonNull(number);
         this.repetitions = Objects.requireNonNull(repetitions);
-
         validateNumber(number, 0, "The number only can be into 1 and 6");
-
         validateNumber(repetitions, 2, "The repetitions number only can be into 3 and 6");
-
     }
 
     private void validateNumber(Integer number, int i, String s) {
@@ -42,7 +38,6 @@ public class Riddle implements ValueObject<Riddle.Value> {
 
     public interface Value {
         Integer number();
-
         Integer repetitions();
     }
 

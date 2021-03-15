@@ -6,10 +6,8 @@ import co.com.softka.softkau.nomemientasapp.domain.game.values.identities.Player
 import co.com.softka.softkau.nomemientasapp.domain.game.values.valuesObjects.Name;
 
 public class Player extends Entity<PlayerId> {
-
     private final Name name;
     private Capital capital;
-
 
     public Player(PlayerId entityId, Name name, Capital capital) {
         super(entityId);

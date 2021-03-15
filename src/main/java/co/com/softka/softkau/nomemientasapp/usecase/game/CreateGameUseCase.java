@@ -1,4 +1,4 @@
-package co.com.softka.softkau.nomemientasapp.usecase;
+package co.com.softka.softkau.nomemientasapp.usecase.game;
 
 import co.com.sofka.business.generic.BusinessException;
 import co.com.sofka.business.generic.UseCase;
@@ -15,7 +15,6 @@ public class CreateGameUseCase extends UseCase<RequestCommand<CreateGame>, Respo
     public void executeUseCase(RequestCommand<CreateGame> input) {
         var command = input.getCommand();
         var gameId = new GameId();
-
         var factory = PlayerFactory.builder();
         command.getNames()
                 .forEach((playerId, name) ->
@@ -23,9 +22,7 @@ public class CreateGameUseCase extends UseCase<RequestCommand<CreateGame>, Respo
                                 playerId, name, command.getCapitals().get(playerId)
                         ));
         validateBusinessException(gameId, factory);
-
         var game = new Game(gameId, factory);
-
         emit().onResponse(new ResponseEvents(game.getUncommittedChanges()));
     }
 

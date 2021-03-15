@@ -6,7 +6,8 @@ import co.com.softka.softkau.nomemientasapp.domain.game.values.identities.Player
 import java.util.Set;
 
 public class GameStarted extends DomainEvent {
-   private final Set<PlayerId> playersIds;
+    private final Set<PlayerId> playersIds;
+
     public GameStarted(Set<PlayerId> playersIds1) {
         super("Nomemientasapp.game.inicialiced");
         this.playersIds = playersIds1;

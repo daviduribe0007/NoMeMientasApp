@@ -1,4 +1,4 @@
-package co.com.softka.softkau.nomemientasapp.usecase;
+package co.com.softka.softkau.nomemientasapp.usecase.game;
 
 
 import co.com.sofka.business.generic.BusinessException;
@@ -14,17 +14,12 @@ public class StartGameUseCase extends UseCase<RequestCommand<StartGame>, Respons
     @Override
     public void executeUseCase(RequestCommand<StartGame> input) {
         var command = input.getCommand();
-
         var game = Game.from(command.getGameId(),retrieveEvents());
-
         try {
             game.startGame();
             emit().onResponse(new ResponseEvents(game.getUncommittedChanges()));
         } catch (RuntimeException e){
             emit().onError(new BusinessException(game.identity().value(), e.getMessage()));
         }
-
-
-
     }
 }

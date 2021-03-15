@@ -31,6 +31,7 @@ public class BetOnStage implements ValueObject<BetOnStage.Values> {
 
     public interface Values {
         Riddle riddle();
+
         ToBet toBet();
     }
 

@@ -16,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 
 public class Game extends AggregateEvent<GameId> {
-
     protected Map<PlayerId, Player> players;
     protected RoundId roundId;
     protected Boolean startedGame;
