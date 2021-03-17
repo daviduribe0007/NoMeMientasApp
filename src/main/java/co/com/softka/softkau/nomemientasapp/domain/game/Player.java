@@ -18,14 +18,14 @@ public class Player extends Entity<PlayerId> {
     public Player(PlayerId entityId, Name name) {
         super(entityId);
         this.name = name;
-        this.capital = new Capital(0.0);
+        this.capital = new Capital(0);
     }
 
-    public void aumentCapital(Double valor) {
+    public void aumentCapital(Integer valor) {
         this.capital = this.capital.aumentCapital(valor);
     }
 
-    public void subtractCapital(Double valor) {
+    public void subtractCapital(Integer valor) {
         this.capital = this.capital.subtractCapital(valor);
     }
 

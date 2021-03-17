@@ -25,7 +25,7 @@ import java.util.*;
 import static org.mockito.Mockito.when;
 
 @ExtendWith(MockitoExtension.class)
-class CreateFirstStageUseCaseTest {
+class CreateCeroStageUseCaseTest {
 
     private final Set<PlayerId> playerIds = Set.of(
             PlayerId.of("gggg"), PlayerId.of("ttttt")
@@ -41,7 +41,7 @@ class CreateFirstStageUseCaseTest {
 
         var roundId = RoundId.of("aaaaa");
         var event = createTriggeredEventWith(roundId);
-        var useCase = new CreateFirstStageUseCase();
+        var useCase = new CreateCeroStageUseCase();
         when(repository.getEventsBy(roundId.value())).thenReturn(eventStored());
         useCase.addRepository(repository);
 
@@ -77,7 +77,7 @@ class CreateFirstStageUseCaseTest {
         return diceFacesList;
     }
 
-    private List<DomainEvent> executor(RoundId rondaId, DicesThrowes event, CreateFirstStageUseCase useCase) {
+    private List<DomainEvent> executor(RoundId rondaId, DicesThrowes event, CreateCeroStageUseCase useCase) {
         return UseCaseHandler
                 .getInstance()
                 .setIdentifyExecutor(rondaId.toString())

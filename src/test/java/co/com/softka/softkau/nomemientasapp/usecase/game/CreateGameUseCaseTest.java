@@ -32,13 +32,13 @@ class CreateGameUseCaseTest {
                 PlayerId.of("999"), new Name("pipe")
         );
         var capiltals = Map.of(
-                PlayerId.of("111"), new Capital(500.0),
-                PlayerId.of("222"), new Capital(500.0),
-                PlayerId.of("333"), new Capital(500.0),
-                PlayerId.of("666"), new Capital(500.0),
-                PlayerId.of("777"), new Capital(500.0),
-                PlayerId.of("888"), new Capital(500.0),
-                PlayerId.of("999"), new Capital(500.0)
+                PlayerId.of("111"), new Capital(500),
+                PlayerId.of("222"), new Capital(500),
+                PlayerId.of("333"), new Capital(500),
+                PlayerId.of("666"), new Capital(500),
+                PlayerId.of("777"), new Capital(500),
+                PlayerId.of("888"), new Capital(500),
+                PlayerId.of("999"), new Capital(500)
         );
         var command = new CreateGame(capiltals, names);
         var useCase = new CreateGameUseCase();
@@ -95,7 +95,7 @@ class CreateGameUseCaseTest {
                 PlayerId.of("111"), new Name("Raul Alzate")
         );
         var capiltals = Map.of(
-                PlayerId.of("111"), new Capital(500.0)
+                PlayerId.of("111"), new Capital(500)
         );
         var command = new CreateGame(capiltals, name);
         var useCase = new CreateGameUseCase();

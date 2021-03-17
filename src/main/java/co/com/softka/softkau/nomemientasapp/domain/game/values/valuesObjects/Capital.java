@@ -4,21 +4,21 @@ import co.com.sofka.domain.generic.ValueObject;
 
 import java.util.Objects;
 
-public class Capital implements ValueObject<Double> {
-    private final Double value;
+public class Capital implements ValueObject<Integer> {
+    private final Integer value;
 
-    public Capital(Double capital) {
+    public Capital(Integer capital) {
         this.value = Objects.requireNonNull(capital);
         if (capital < 0) {
             throw new IllegalArgumentException("The capital can´t be negative capital");
         }
     }
 
-    public Capital aumentCapital(Double value) {
+    public Capital aumentCapital(Integer value) {
         return new Capital(this.value + value);
     }
 
-    public Capital subtractCapital(Double value) {
+    public Capital subtractCapital(Integer value) {
         if (value > this.value) {
             throw new IllegalArgumentException("The subtrac capital can´t excend your current capital ");
         }
@@ -27,7 +27,7 @@ public class Capital implements ValueObject<Double> {
     }
 
     @Override
-    public Double value() {
+    public Integer value() {
         return value;
     }
 

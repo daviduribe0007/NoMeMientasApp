@@ -3,16 +3,12 @@ package co.com.softka.softkau.nomemientasapp.domain.round;
 import co.com.sofka.domain.generic.AggregateEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.softka.softkau.nomemientasapp.domain.game.values.identities.PlayerId;
-import co.com.softka.softkau.nomemientasapp.domain.round.events.DicesThrowes;
-import co.com.softka.softkau.nomemientasapp.domain.round.events.RoundCreated;
-import co.com.softka.softkau.nomemientasapp.domain.round.events.RoundStart;
-import co.com.softka.softkau.nomemientasapp.domain.round.events.StageCreated;
+import co.com.softka.softkau.nomemientasapp.domain.round.events.*;
 import co.com.softka.softkau.nomemientasapp.domain.round.values.identities.RoundId;
 import co.com.softka.softkau.nomemientasapp.domain.round.values.identities.DiceId;
 import co.com.softka.softkau.nomemientasapp.domain.game.values.identities.GameId;
 import co.com.softka.softkau.nomemientasapp.domain.round.values.identities.StageId;
-import co.com.softka.softkau.nomemientasapp.domain.round.values.valuesobjects.DiceFace;
-import co.com.softka.softkau.nomemientasapp.domain.round.values.valuesobjects.PointRound;
+import co.com.softka.softkau.nomemientasapp.domain.round.values.valuesobjects.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,6 +49,14 @@ public class Round extends AggregateEvent<RoundId> {
         List<DiceFace> diceFaces = new ArrayList<>();
         appendChange(new StageCreated(gameId, StageId.of(1), diceFaces)).apply();
     }
+    public void addBetOnStage(PlayerId playerId, Integer numberDiceFace, Integer repetition,Integer toBetMount) {
+        Riddle riddle = new Riddle(numberDiceFace,repetition);
+        ToBet toBet = new ToBet(toBetMount);
+        BetOnStage betOnStage = new BetOnStage(riddle,toBet);
+        appendChange(new BetOnStageAdded(gameId, StageId.of(1), playerId,betOnStage)).apply();
+    }
+
+
 
     public void throwDice() {
         var diceFaceList = this.dice

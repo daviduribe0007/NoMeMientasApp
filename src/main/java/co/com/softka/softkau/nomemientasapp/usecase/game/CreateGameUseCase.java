@@ -33,6 +33,6 @@ public class CreateGameUseCase extends UseCase<RequestCommand<CreateGame>, Respo
     }
 
     private boolean playersIntoValidRange(PlayerFactory factory) {
-        return factory.players().size() < 2 && 24 > factory.players().size();
+        return factory.players().size() < 2 || 24 < factory.players().size();
     }
 }

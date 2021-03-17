@@ -52,8 +52,8 @@ class StartGameUseCaseTest {
     private List<DomainEvent> eventStored(GameId id) {
         return List.of(
                 new GameCreated(id),
-                new PlayerAdded(PlayerId.of("111"), new Name("Raul Alzate"), new Capital(500.0)),
-                new PlayerAdded(PlayerId.of("222"), new Name("Andres"), new Capital(500.0))
+                new PlayerAdded(PlayerId.of("111"), new Name("Raul Alzate"), new Capital(500)),
+                new PlayerAdded(PlayerId.of("222"), new Name("Andres"), new Capital(500))
         );
     }
 

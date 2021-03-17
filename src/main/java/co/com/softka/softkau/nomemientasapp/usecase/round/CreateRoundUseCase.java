@@ -16,7 +16,7 @@ public class CreateRoundUseCase extends UseCase<TriggeredEvent<GameStarted>, Res
         var event = input.getDomainEvent();
         var roundId = new RoundId();
         if (event.getPlayersIds().size() < 2) {
-            throw new BusinessException(roundId.value(), "The round can not create for lack of players");
+            throw new BusinessException(roundId.value(), "The round can't create for lack of players");
         }
         var gameId = GameId.of(event.aggregateRootId());
         var round = new Round(roundId, gameId, event.getPlayersIds());
