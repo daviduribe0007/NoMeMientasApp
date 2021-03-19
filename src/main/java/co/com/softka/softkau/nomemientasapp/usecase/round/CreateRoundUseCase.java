@@ -20,7 +20,7 @@ public class CreateRoundUseCase extends UseCase<TriggeredEvent<GameStarted>, Res
         }
         var gameId = GameId.of(event.aggregateRootId());
         var round = new Round(roundId, gameId, event.getPlayersIds());
-        round.startRound();
+        round.createRound();
         emit().onResponse(new ResponseEvents(round.getUncommittedChanges()));
     }
 }

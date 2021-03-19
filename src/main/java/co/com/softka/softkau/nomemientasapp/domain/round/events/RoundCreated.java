@@ -7,13 +7,13 @@ import co.com.softka.softkau.nomemientasapp.domain.game.values.identities.Player
 import java.util.Set;
 
 public class RoundCreated extends DomainEvent {
+        private final GameId gameId;
     private final Set<PlayerId> playerIds;
-    private final GameId gameId;
 
-    public RoundCreated(Set<PlayerId> playerIds, GameId gameId) {
+    public RoundCreated( GameId gameId, Set<PlayerId> playerIds) {
         super("Nomemientasapp.round.create");
-        this.playerIds = playerIds;
         this.gameId = gameId;
+        this.playerIds = playerIds;
     }
 
     public Set<PlayerId> playerIds() {

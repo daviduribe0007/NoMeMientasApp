@@ -24,15 +24,18 @@ public class Round extends AggregateEvent<RoundId> {
     protected Map<StageId, Stage> stagues;
     protected Map<RoundId, PointRound> points;
     protected Set<PlayerId> playerIds;
+    protected Boolean started;
+    protected  Map<DiceId,DiceFace> dicesList;
 
-    public Round(RoundId entityId) {
+
+    private Round(RoundId entityId) {
         super(entityId);
         subscribe(new RoundChange(this));
     }
 
     public Round(RoundId entityId, GameId gameId, Set<PlayerId> playerIds) {
         super(entityId);
-        appendChange(new RoundCreated(playerIds, gameId)).apply();
+        appendChange(new RoundCreated(gameId,playerIds)).apply();
     }
 
     public static Round from(RoundId entityId, List<DomainEvent> events) {
@@ -41,13 +44,19 @@ public class Round extends AggregateEvent<RoundId> {
         return round;
     }
 
-    public void startRound() {
-        appendChange(new RoundStart(gameId, playerIds)).apply();
+    public void createRound() {
+        appendChange(new RoundCreated(gameId, playerIds)).apply();
     }
 
-    public void createFirstStage() {
+
+    public void createCeroStage() {
         List<DiceFace> diceFaces = new ArrayList<>();
         appendChange(new StageCreated(gameId, StageId.of(1), diceFaces)).apply();
+    }
+
+    public void startRound(){
+        appendChange(new RoundStarted(entityId, playerIds)).apply();
+
     }
     public void addBetOnStage(PlayerId playerId, Integer numberDiceFace, Integer repetition,Integer toBetMount) {
         Riddle riddle = new Riddle(numberDiceFace,repetition);
@@ -59,11 +68,18 @@ public class Round extends AggregateEvent<RoundId> {
 
 
     public void throwDice() {
-        var diceFaceList = this.dice
-                .values()
-                .stream()
-                .map(dice -> Map.of(dice.identity(), dice.getDiceFaces()))
-                .collect(Collectors.toList());
-        appendChange(new DicesThrowes(gameId, diceFaceList)).apply();
+        var diceFaceList = this.dice;
+
+        appendChange(new DicesThrew(gameId, Map.of(DiceId.of(1), new DiceFace(),
+                DiceId.of(2), new DiceFace(),
+                DiceId.of(3), new DiceFace(),
+                DiceId.of(4), new DiceFace(),
+                DiceId.of(5), new DiceFace(),
+                DiceId.of(6), new DiceFace()))).apply();
+    }
+
+    public void showFace(Integer numberFaces){
+
+        appendChange(new DiceFaceShowed(entityId,numberFaces,dicesList));
     }
 }

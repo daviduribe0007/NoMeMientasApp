@@ -8,22 +8,22 @@ import co.com.softka.softkau.nomemientasapp.domain.round.values.valuesobjects.Di
 import java.util.List;
 import java.util.Map;
 
-public class DicesThrowes extends DomainEvent {
+public class DicesThrew extends DomainEvent {
     private final GameId gameId;
-    private final List<Map<DiceId, List<DiceFace>>> dicesList;
+    private final Map<DiceId,DiceFace> dicesList;
 
 
-    public DicesThrowes(GameId gameId, List<Map<DiceId, List<DiceFace>>> dicesList) {
+    public DicesThrew(GameId gameId, Map<DiceId,DiceFace> dicesList) {
         super("Nomemientasapp.round.throwdices");
         this.gameId = gameId;
         this.dicesList = dicesList;
     }
 
-    public List<Map<DiceId, List<DiceFace>>> diceFaceList() {
-        return dicesList;
+    public GameId getGameId() {
+        return gameId;
     }
 
-    public GameId gameId() {
-        return gameId;
+    public Map<DiceId, DiceFace> getDicesList() {
+        return dicesList;
     }
 }

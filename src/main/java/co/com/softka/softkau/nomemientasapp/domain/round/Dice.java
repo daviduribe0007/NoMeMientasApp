@@ -15,11 +15,6 @@ public class Dice extends Entity<DiceId> {
         this.diceFaces = new ArrayList<>();
     }
 
-    public void throwDice() {
-        for (int i = 1; i <= 6; i++) {
-            diceFaces.add(new DiceFace((int) Math.ceil(Math.random() * 6)));
-        }
-    }
 
     public List<DiceFace> getDiceFaces() {
         return diceFaces;

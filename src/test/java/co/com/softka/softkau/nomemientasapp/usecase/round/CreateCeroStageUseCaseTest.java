@@ -6,9 +6,9 @@ import co.com.sofka.business.support.TriggeredEvent;
 import co.com.sofka.domain.generic.DomainEvent;
 import co.com.softka.softkau.nomemientasapp.domain.game.values.identities.GameId;
 import co.com.softka.softkau.nomemientasapp.domain.game.values.identities.PlayerId;
-import co.com.softka.softkau.nomemientasapp.domain.round.events.DicesThrowes;
+import co.com.softka.softkau.nomemientasapp.domain.round.events.DicesThrew;
 import co.com.softka.softkau.nomemientasapp.domain.round.events.RoundCreated;
-import co.com.softka.softkau.nomemientasapp.domain.round.events.RoundStart;
+import co.com.softka.softkau.nomemientasapp.domain.round.events.RoundStarted;
 import co.com.softka.softkau.nomemientasapp.domain.round.events.StageCreated;
 import co.com.softka.softkau.nomemientasapp.domain.round.values.identities.DiceId;
 import co.com.softka.softkau.nomemientasapp.domain.round.values.identities.RoundId;
@@ -31,6 +31,8 @@ class CreateCeroStageUseCaseTest {
             PlayerId.of("gggg"), PlayerId.of("ttttt")
     );
     private final GameId gameId = GameId.of("ffff");
+    private final RoundId roundId = RoundId.of("aaaaa");
+
 
     @Mock
     private DomainEventRepository repository;
@@ -54,17 +56,17 @@ class CreateCeroStageUseCaseTest {
     }
 
 
-    private DicesThrowes createTriggeredEventWith(RoundId roundId) {
-        List<Map<DiceId, List<DiceFace>>> listDiceFace = new ArrayList<>();
-        listDiceFace.add(Map.of(
-                DiceId.of(1), generateDiceFace(),
-                DiceId.of(2), generateDiceFace(),
-                DiceId.of(3), generateDiceFace(),
-                DiceId.of(4), generateDiceFace(),
-                DiceId.of(5), generateDiceFace(),
-                DiceId.of(6), generateDiceFace()
+    private DicesThrew createTriggeredEventWith(RoundId roundId) {
+
+        Map<DiceId,DiceFace> listDiceFace= (Map.of(
+                DiceId.of(1), new DiceFace(),
+                DiceId.of(2), new DiceFace(),
+                DiceId.of(3), new DiceFace(),
+                DiceId.of(4), new DiceFace(),
+                DiceId.of(5), new DiceFace(),
+                DiceId.of(6), new DiceFace()
         ));
-        var event = new DicesThrowes(gameId, listDiceFace);
+        var event = new DicesThrew(gameId, listDiceFace);
         event.setAggregateRootId(roundId.value());
         return event;
     }
@@ -72,12 +74,12 @@ class CreateCeroStageUseCaseTest {
     private List<DiceFace> generateDiceFace() {
         List<DiceFace> diceFacesList = new ArrayList<>();
         for (int i = 1; i <= 6; i++) {
-            diceFacesList.add(new DiceFace(i));
+            diceFacesList.add(new DiceFace());
         }
         return diceFacesList;
     }
 
-    private List<DomainEvent> executor(RoundId rondaId, DicesThrowes event, CreateCeroStageUseCase useCase) {
+    private List<DomainEvent> executor(RoundId rondaId, DicesThrew event, CreateCeroStageUseCase useCase) {
         return UseCaseHandler
                 .getInstance()
                 .setIdentifyExecutor(rondaId.toString())
@@ -88,8 +90,8 @@ class CreateCeroStageUseCaseTest {
 
     private List<DomainEvent> eventStored() {
         return List.of(
-                new RoundCreated(playerIds, gameId),
-                new RoundStart(gameId, playerIds)
+                new RoundCreated(gameId,playerIds),
+                new RoundStarted(roundId, playerIds)
         );
     }
 
